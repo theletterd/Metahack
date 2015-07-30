@@ -26,6 +26,8 @@ body {
     border-radius: 42px;
     border: 4px solid rgb(55, 55, 55);
     padding: 20px 45px;
+    width: 45%;
+    margin: 0 auto;
 }
 
 .another-suggestion {

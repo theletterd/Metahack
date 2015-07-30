@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+    $('.another-suggestion button').click(function() {
+        $.ajax({
+            url: '/get_idea'
+        }).done(function(data) {
+            $('.hackathon-idea').text(data);
+        });
+
+    });
+
     $('.action-button').click(function(event) {
 	// maybe it makes sense to disable all the buttons here.
 	$('.action-button').addClass('disabled');
