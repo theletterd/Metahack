@@ -15,6 +15,17 @@ body {
 
 }
 
+.footer {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #02221c;
+    color: #a9adad;
+    font-size: 50px;
+}
+
 .idea-container {
     text-align: center
 }
