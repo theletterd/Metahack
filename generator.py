@@ -2,7 +2,9 @@ import random
 import collections
 import re
 
-BANNED_PATTERN = "\[\]\(\)"
+
+BANNED_PATTERN = "\[|\]|\(|\)|\""
+
 
 class HackathonIdeaGenerator(object):
 
@@ -34,8 +36,8 @@ class HackathonIdeaGenerator(object):
         with open(filename, 'r') as infile:
             for line in infile:
                 word_chain = line.split()
-                if len(word_chain) > 0:
-                    # Add first and last word in sentence to dict.
+                if len(word_chain) > 1:
+                    # Add first and last tuples in sentence to dict.
                     self.add_words("'", word_chain[0])
                     self.add_words(word_chain[len(word_chain)-1], "'")
 
