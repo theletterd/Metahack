@@ -1,0 +1,34 @@
+body {
+    margin: 0 !important;
+    background: #53b39f;
+}
+
+.header {
+    font-size: 50px;
+    color: #a9adad;
+    background: #02221c;
+    padding: 10px 40px;
+    margin-bottom: 100px;
+}
+
+.content {
+
+}
+
+.idea-container {
+    text-align: center
+}
+
+.hackathon-idea {
+    color: #292a2a;
+    font-size: 50px;
+    background-color: rgb(236, 220, 209);
+    border-radius: 42px;
+    border: 4px solid rgb(55, 55, 55);
+    padding: 20px 45px;
+}
+
+.another-suggestion {
+    margin-top: 50px;
+    margin-left: 75%;
+}
