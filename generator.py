@@ -21,7 +21,6 @@ class HackathonIdeaGenerator(object):
 
         return u" ".join(hackathon_idea)
 
-
     def get_next_word(self, current_word):
         potential_next_words = self.words.get(current_word)
         if potential_next_words:
@@ -29,7 +28,7 @@ class HackathonIdeaGenerator(object):
         return None
 
     def add_words(self, key, value):
-        if not re.match(BANNED_PATTERN, key) and not re.match(BANNED_PATTERN, value):
+        if not re.search(BANNED_PATTERN, key) and not re.search(BANNED_PATTERN, value):
             self.words[key.lower()].append(value.lower())
 
     def populate_dictionary(self, filename):
