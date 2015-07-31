@@ -9,23 +9,20 @@
     <body>
         <div class="header">
             <a href="/" class="home-link">Metahack</a>
+            {% if message %}
+                <span class="message-area">{{ message }}</span>
+            {% endif %}
             <a href="/submit" class="submit-link">Submit your own</a>
             <a href="/bestof" class="bestof-link">Best-of</a>
             <a href="/" class="home-dashed-link">Home</a>
         </div>
         <div class="content">
-            <form method="POST" action="/submit">
+            {% for hackathon_idea in hackathon_ideas %}
                 <div class="idea-container">
-                    <textarea name="idea" class="hackathon-idea"></textarea>
+                    <div class="hackathon-idea">{{ hackathon_idea }}</div>
                 </div>
-                <div class="action-buttons">
-                    <div class="another-suggestion">
-                        <button>Submit.</button>
-                    </div>
-                </div>
-            </form>
+            {% endfor %}
         </div>
-
         <div class="footer"></div>
     </body>
 </html>

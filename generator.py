@@ -10,10 +10,11 @@ END_WORD = 'endword'
 
 class HackathonIdeaGenerator(object):
 
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self, training_file, bestof_file):
+        self.training_file = training_file
+        self.bestof_file = bestof_file
         self.words = collections.defaultdict(list)
-        self.populate_dictionary(filename)
+        self.populate_dictionary(training_file)
 
     def get_hackathon_idea(self):
         for _ in xrange(3):
@@ -35,11 +36,19 @@ class HackathonIdeaGenerator(object):
         with open(filename, 'a+') as outfile:
             outfile.write(u'{idea}\n'.format(idea=idea))
 
+    def save_to_bestof(self, idea):
+        self.save_idea_to_file(idea, self.bestof_file)
+
+    def get_bestof_ideas(self):
+        with open(self.bestof_file, 'r') as f:
+            ideas = f.readlines()
+        return ideas
+
     def add_new_idea(self, idea):
         if not idea:
             return
 
-        self.save_idea_to_file(idea, self.filename)
+        self.save_idea_to_file(idea, self.training_file)
         self._add_idea(idea)
 
     def _get_next_word(self, current_word):

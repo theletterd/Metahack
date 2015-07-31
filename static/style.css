@@ -11,13 +11,16 @@ body {
     margin-bottom: 100px;
 }
 
-.header a.submit-link {
+.header a.submit-link,
+.header a.home-dashed-link,
+.header a.bestof-link {
     color: #18d9e8;
     text-decoration: none;
     float: right;
     font-size: 19px;
     margin-top: 20px;
     border-bottom: 1px dashed #18d9e8;
+    margin-left: 10px;
 }
 
 .header a.home-link {
@@ -46,7 +49,8 @@ body {
 }
 
 .idea-container {
-    text-align: center
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .hackathon-idea {
@@ -83,14 +87,20 @@ textarea.empty {
     font-style: italic;
 }
 
-.another-suggestion {
+.action-buttons {
     margin-top: 50px;
     margin-left: 75%;
     position: absolute;
     bottom: 100px;
 }
 
-.another-suggestion button {
+.another-suggestion,
+.keep-forever {
+    display: inline;
+}
+
+.another-suggestion button,
+.keep-forever button {
     font-size: 20px;
     border-radius: 14px;
 }

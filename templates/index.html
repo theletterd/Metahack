@@ -9,18 +9,23 @@
     <body>
         <div class="header">
             <a href="/" class="home-link">Metahack</a>
-            {% if message %}
-                <span class="message-area">{{ message }}</span>
-            {% endif %}
+            <span class="message-area">{{ message }}</span>
             <a href="/submit" class="submit-link">Submit your own</a>
+            <a href="/bestof" class="bestof-link">Best-of</a>
+            <a href="/" class="home-dashed-link">Home</a>
         </div>
         <div class="content">
             <div class="idea-container">
                 <div class="hackathon-idea">{{ hackathon_idea }}</div>
             </div>
         </div>
-        <div class="another-suggestion">
-            <button>Show me another</button>
+        <div class="action-buttons">
+            <div class="keep-forever">
+                <button>Keep Forever</button>
+            </div>
+            <div class="another-suggestion">
+                <button>Show me another</button>
+            </div>
         </div>
         <div class="footer"></div>
     </body>
