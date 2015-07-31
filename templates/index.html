@@ -8,7 +8,10 @@
     </head>
     <body>
         <div class="header">
-            Metahack
+            <a href="/">Metahack</a>
+            {% if message %}
+                <span class="message-area">{{ message }}</span>
+            {% endif %}
         </div>
         <div class="content">
             <div class="idea-container">
