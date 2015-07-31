@@ -31,13 +31,15 @@ class HackathonIdeaGenerator(object):
 
         return u" ".join(hackathon_idea).capitalize()
 
+    def save_idea_to_file(self, idea, filename):
+        with open(filename, 'a+') as outfile:
+            outfile.write(u'{idea}\n'.format(idea=idea))
+
     def add_new_idea(self, idea):
         if not idea:
             return
 
-        with open(self.filename, 'a') as outfile:
-            outfile.write(u'{idea}\n'.format(idea=idea))
-
+        self.save_idea_to_file(idea, self.filename)
         self._add_idea(idea)
 
     def _get_next_word(self, current_word):
