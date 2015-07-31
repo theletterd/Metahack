@@ -41,6 +41,24 @@ body {
     margin: 0 auto;
 }
 
+
+.input-idea {
+    margin-top: 50px;
+    margin-left: 25%;
+    position: absolute;
+    bottom: 100px;
+}
+
+.input-idea button {
+    font-size: 20px;
+    border-radius: 14px;
+}
+
+.input-idea button:focus,
+textarea:focus {
+    outline: 0;
+}
+
 .another-suggestion {
     margin-top: 50px;
     margin-left: 75%;
