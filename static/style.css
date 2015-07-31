@@ -1,6 +1,16 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0 !important;
     background: #53b39f;
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+    position: relative;
 }
 
 .header {
@@ -34,7 +44,7 @@ body {
 }
 
 .content {
-
+    padding-bottom: 70px;
 }
 
 .footer {
