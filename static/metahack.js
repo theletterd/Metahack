@@ -6,6 +6,5 @@ $(document).ready(function() {
         }).done(function(data) {
             $('.hackathon-idea').text(data);
         });
-
     });
 });

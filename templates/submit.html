@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>For when your imagination sucks</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery-2.1.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='metahack.js') }}"></script>
+    </head>
+    <body>
+        <div class="header">
+            Metahack
+        </div>
+        <div class="content">
+            <form method="POST" action="/submit">
+                <div class="idea-container">
+                    <textarea name="idea" class="hackathon-idea"></textarea>
+                </div>
+                <button>Submit.</button>
+            </form>
+        </div>
+
+        <div class="footer"></div>
+    </body>
+</html>

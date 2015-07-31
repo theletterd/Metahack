@@ -53,6 +53,7 @@ body {
     border-radius: 14px;
 }
 
-.another-suggestion button:focus {
+.another-suggestion button:focus,
+textarea:focus {
     outline: 0;
 }

@@ -1,5 +1,8 @@
 from flask import Flask
+from flask import redirect
 from flask import render_template
+from flask import request
+
 import generator
 
 app = Flask(__name__)
@@ -12,7 +15,7 @@ IDEAS = [
 
 generate_engine = generator.HackathonIdeaGenerator("test_ideas.txt")
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     hackathon_idea = generate_engine.get_hackathon_idea()
     return render_template(
@@ -20,9 +23,20 @@ def index():
         hackathon_idea=hackathon_idea
     )
 
-@app.route('/get_idea')
+@app.route('/get_idea', methods=['GET'])
 def get_idea():
     return generate_engine.get_hackathon_idea()
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit_idea():
+    if request.method == 'POST':
+        idea = request.form['idea']
+        generate_engine.add_new_idea(idea)
+        return redirect('/')
+    else:
+        return render_template(
+            'submit.html'
+        )
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
