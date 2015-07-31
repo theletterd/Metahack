@@ -4,6 +4,8 @@ import re
 
 
 BANNED_PATTERN = "\[|\]|\(|\)|\""
+START_WORD = 'startword'
+END_WORD = 'endword'
 
 
 class HackathonIdeaGenerator(object):
@@ -14,18 +16,25 @@ class HackathonIdeaGenerator(object):
         self.populate_dictionary(filename)
 
     def get_hackathon_idea(self):
+        for _ in xrange(3):
+            idea = self._get_hackathon_idea()
+            if len(idea.split()) > 1:
+                return idea
+        return idea
+
+    def _get_hackathon_idea(self):
         hackathon_idea = []
-        current_word = self._get_next_word("'")
-        while(current_word and current_word != "'" and len(hackathon_idea) < 15):
+        current_word = self._get_next_word(START_WORD)
+        while(current_word and current_word != END_WORD and len(hackathon_idea) < 25):
             hackathon_idea.append(current_word)
             current_word = self._get_next_word(current_word)
 
-        return u" ".join(hackathon_idea)
-    
+        return u" ".join(hackathon_idea).capitalize()
+
     def add_new_idea(self, idea):
         if not idea:
             return
-        
+
         with open(self.filename, 'a') as outfile:
             outfile.write(u'{idea}\n'.format(idea=idea))
 
@@ -42,27 +51,34 @@ class HackathonIdeaGenerator(object):
             if not re.search(BANNED_PATTERN, value[0]) \
                     and not re.search(BANNED_PATTERN, value[1]):
                 self.words[key.lower()].append((value[0].lower(), value[1].lower()))
-   
+
+    def clean_line(self, line):
+        for character in "?":
+            line = line.replace(character, '')
+
+        return line
+
     def _add_idea(self, idea):
+        idea = self.clean_line(idea)
         word_chain = idea.split()
-        if len(word_chain) > 2:
+        if len(word_chain) > 5:
             # Add first and last tuples in sentence to dict.
             self._add_words(
-                "'", 
-                ("'", word_chain[0])
+                START_WORD,
+                (START_WORD, word_chain[0])
             )
             self._add_words(
-                word_chain[len(word_chain)-1], 
-                ("'", "'")
+                word_chain[len(word_chain)-1],
+                (END_WORD, END_WORD)
             )
 
             for j in range(0, len(word_chain)-1):
                 self._add_words(
-                    word_chain[j], 
+                    word_chain[j],
                     (word_chain[j], word_chain[j+1])
                 )
 
     def populate_dictionary(self, filename):
         with open(filename, 'r') as infile:
             for line in infile:
-              self._add_idea(line) 
+              self._add_idea(line)
