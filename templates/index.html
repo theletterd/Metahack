@@ -8,10 +8,11 @@
     </head>
     <body>
         <div class="header">
-            <a href="/">Metahack</a>
+            <a href="/" class="home-link">Metahack</a>
             {% if message %}
                 <span class="message-area">{{ message }}</span>
             {% endif %}
+            <a href="/submit" class="submit-link">Submit your own</a>
         </div>
         <div class="content">
             <div class="idea-container">
@@ -21,11 +22,6 @@
         <div class="another-suggestion">
             <button>Naw.</button>
         </div>
-        <form method="get" action="/submit">
-            <div class="input-idea">
-                <button>I have a better idea!</button>
-            </div>
-        </form>
         <div class="footer"></div>
     </body>
 </html>
